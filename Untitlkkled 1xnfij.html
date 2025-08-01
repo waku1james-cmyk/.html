@@ -1,547 +1,291 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
-	<title></title>
-	<meta name="generator" content="LibreOffice 7.3.7.2 (Linux)"/>
-	<meta name="created" content="2025-08-01T11:10:30.761762460"/>
-	<meta name="changed" content="2025-08-01T14:32:15.771708120"/>
-	<style type="text/css">
-		@page { size: 8.27in 11.69in; margin: 0.79in }
-		p { line-height: 115%; margin-bottom: 0.1in; background: transparent }
-	</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Donate easily via Mobile Money or Bank Transfer to support our cause." />
+  <meta property="og:title" content="Support Our Cause - Mobile Donations" />
+  <meta property="og:description" content="Donate securely using Mobile Money or Bank Transfer to support our mission." />
+  <meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/4/44/Google-flutter-logo.svg" />
+  <meta property="og:url" content="https://donation-forum.netlify.app" />
+  <title>Support Our Cause - Mobile Money Donation</title>
+  <link rel="icon" href="https://upload.wikimedia.org/wikipedia/commons/4/44/Google-flutter-logo.svg" />
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXX');
+  </script>
+  <!-- Google reCAPTCHA -->
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(135deg, #8e44ad, #3498db);
+      color: #333;
+      background-attachment: fixed;
+    }
+    .container {
+      max-width: 700px;
+      margin: 3rem auto;
+      padding: 2rem;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 6px 30px rgba(0, 0, 0, 0.3);
+      position: relative;
+    }
+    .logo {
+      display: block;
+      margin: 0 auto 1.5rem;
+      max-width: 120px;
+    }
+    .header h1 {
+      text-align: center;
+      margin-bottom: 1rem;
+      color: #8e44ad;
+    }
+    .thank-you-msg {
+      display: none;
+      background: #dff0d8;
+      color: #3c763d;
+      padding: 1rem;
+      margin-top: 1rem;
+      border-radius: 8px;
+      text-align: center;
+    }
+    .form-group {
+      margin-bottom: 1.25rem;
+    }
+    label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: bold;
+    }
+    input[type="text"],
+    input[type="email"],
+    input[type="number"] {
+      width: 100%;
+      padding: 0.6rem;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+    .amount-options {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .amount-btn {
+      background: #f1f1f1;
+      padding: 0.6rem 1rem;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .amount-btn.selected {
+      background: #8e44ad;
+      color: white;
+    }
+    .payment-method {
+      display: flex;
+      gap: 10px;
+    }
+    .payment-method-card {
+      background: #ecf0f1;
+      padding: 1rem;
+      border-radius: 6px;
+      cursor: pointer;
+      flex: 1;
+      text-align: center;
+      transition: background 0.3s;
+    }
+    .payment-method-card.selected {
+      background: #3498db;
+      color: white;
+    }
+    .payment-info {
+      display: none;
+    }
+    .payment-info.active {
+      display: block;
+      margin-top: 1rem;
+    }
+    .submit-btn {
+      width: 100%;
+      padding: 1rem;
+      background: #3498db;
+      border: none;
+      color: white;
+      font-size: 1rem;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .submit-btn:hover {
+      background: #2980b9;
+    }
+    .whatsapp-button {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #25D366;
+      color: white;
+      padding: 12px 16px;
+      border-radius: 50%;
+      font-size: 24px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      text-align: center;
+      text-decoration: none;
+      z-index: 1000;
+    }
+  </style>
 </head>
-<body lang="en-US" link="#000080" vlink="#800000" dir="ltr"><p style="line-height: 100%; margin-bottom: 0in">
-&lt;!DOCTYPE html&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0in">&lt;html lang=&quot;en&quot;&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0in"><br/>
 
-</p>
-<p style="line-height: 100%; margin-bottom: 0in">&lt;head&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0in">  &lt;meta
-charset=&quot;UTF-8&quot; /&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0in">  &lt;meta
-name=&quot;viewport&quot; content=&quot;width=device-width,
-initial-scale=1.0&quot; /&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0in">  &lt;title&gt;Support
-Our Cause - Mobile Money Donation&lt;/title&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0in">  &lt;style&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0in">    body {</p>
-<p style="line-height: 100%; margin-bottom: 0in">      font-family:
-'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;</p>
-<p style="line-height: 100%; margin-bottom: 0in">      margin: 0;</p>
-<p style="line-height: 100%; margin-bottom: 0in">      padding: 0;</p>
-<p style="line-height: 100%; margin-bottom: 0in">      background:
-linear-gradient(135deg, #8e44ad, #3498db);</p>
-<p style="line-height: 100%; margin-bottom: 0in">      color: #333;</p>
-<p style="line-height: 100%; margin-bottom: 0in">     
-background-attachment: fixed;</p>
-<p style="line-height: 100%; margin-bottom: 0in">    }</p>
-<p style="line-height: 100%; margin-bottom: 0in"><br/>
+<body>
+  <div class="container">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/4/44/Google-flutter-logo.svg" class="logo" alt="Logo">
+    <div class="header">
+      <h1>Support Our Cause</h1>
+    </div>
+    <form id="donation-form" name="donation" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+      <input type="hidden" name="form-name" value="donation" />
+      <p style="display:none">
+        <label>Don’t fill this out if you're human: <input name="bot-field" /></label>
+      </p>
+      <div class="form-group">
+        <label for="name">Full Name</label>
+        <input type="text" id="name" name="name" required />
+      </div>
+      <div class="form-group">
+        <label for="email">Email Address</label>
+        <input type="email" id="email" name="email" required />
+      </div>
+      <div class="form-group">
+        <label>Select Amount</label>
+        <div class="amount-options">
+          <div class="amount-btn" data-amount="20">₵20</div>
+          <div class="amount-btn" data-amount="50">₵50</div>
+          <div class="amount-btn" data-amount="100">₵100</div>
+          <div class="amount-btn" data-amount="200">₵200</div>
+          <div class="amount-btn" data-amount="500">₵500</div>
+          <div class="amount-btn" data-amount="500">₵800</div>
+          <div class="amount-btn" data-amount="500">₵1000</div>
+          <div class="amount-btn" data-amount="other">Other</div>
+        </div>
+        <input type="number" id="custom-amount" name="custom-amount" placeholder="Enter custom amount" style="margin-top:10px; display:none;" />
+      </div>
+      <div class="form-group">
+        <label>Payment Method</label>
+        <div class="payment-method">
+          <label>
+            <input type="radio" name="payment-method" value="momo" checked hidden />
+            <div class="payment-method-card selected">Mobile Money</div>
+          </label>
+          <label>
+            <input type="radio" name="payment-method" value="bank" hidden />
+            <div class="payment-method-card">Bank Transfer</div>
+          </label>
+        </div>
+      </div>
+      <div class="payment-info momo active">
+        <p>Send to Mobile Money Number:</p>
+        <div class="payment-number" id="momo-number">0532871325 <button type="button" onclick="navigator.clipboard.writeText('0532871325')">📋</button></div>
+        <p class="mobile-money-steps">After sending the money, provide your email to receive a confirmation.</p>
+      </div>
+      <div class="payment-info bank">
+        <label for="bank-name">Bank Name</label>
+        <input type="text" id="bank-name" name="bank-name" />
+        <label for="account-number">Account Number</label>
+        <input type="text" id="account-number" name="account-number" />
+      </div>
+      <div class="g-recaptcha" data-sitekey="YOUR_RECAPTCHA_SITE_KEY"></div>
+      <button type="submit" class="submit-btn">Donate Now</button>
+      <div class="thank-you-msg" id="thank-you-msg">Thank you for your generous donation! 🎉</div>
+    </form>
+  </div>
 
-</p>
-<p style="line-height: 100%; margin-bottom: 0in">    .container {</p>
-<p style="line-height: 100%; margin-bottom: 0in">      max-width:
-700px;</p>
-<p style="line-height: 100%; margin-bottom: 0in">      margin: 3rem
-auto;</p>
-<p style="line-height: 100%; margin-bottom: 0in">      padding: 2rem;</p>
-<p style="line-height: 100%; margin-bottom: 0in">      background:
-white;</p>
-<p style="line-height: 100%; margin-bottom: 0in">      border-radius:
-12px;</p>
-<p style="line-height: 100%; margin-bottom: 0in">      box-shadow: 0
-6px 30px rgba(0, 0, 0, 0.3);</p>
-<p style="line-height: 100%; margin-bottom: 0in">      position:
-relative;</p>
-<p style="line-height: 100%; margin-bottom: 0in">    }</p>
-<p style="line-height: 100%; margin-bottom: 0in"><br/>
+  <a class="whatsapp-button" href="https://wa.me/233532871325" target="_blank" title="Chat with us on WhatsApp">💬</a>
 
-</p>
-<p style="line-height: 100%; margin-bottom: 0in">    .logo {</p>
-<p style="line-height: 100%; margin-bottom: 0in">      display:
-block;</p>
-<p style="line-height: 100%; margin-bottom: 0in">      margin: 0 auto
-1.5rem;</p>
-<p style="line-height: 100%; margin-bottom: 0in">      max-width:
-120px;</p>
-<p style="line-height: 100%; margin-bottom: 0in">    }</p>
-<p style="line-height: 100%; margin-bottom: 0in"><br/>
+  <script>
+    const amountButtons = document.querySelectorAll('.amount-btn');
+    const customAmountInput = document.getElementById('custom-amount');
+    let selectedAmount = null;
 
-</p>
-<p style="line-height: 100%; margin-bottom: 0in">    .header h1 {</p>
-<p style="line-height: 100%; margin-bottom: 0in">      text-align:
-center;</p>
-<p style="line-height: 100%; margin-bottom: 0in">      margin-bottom:
-1rem;</p>
-<p style="line-height: 100%; margin-bottom: 0in">      color:
-#8e44ad;</p>
-<p style="line-height: 100%; margin-bottom: 0in">    }</p>
-<p style="line-height: 100%; margin-bottom: 0in"><br/>
+    amountButtons.forEach(btn => {
+      btn.addEventListener('click', function () {
+        amountButtons.forEach(b => b.classList.remove('selected'));
+        this.classList.add('selected');
+        if (this.dataset.amount === 'other') {
+          customAmountInput.style.display = 'block';
+          selectedAmount = null;
+        } else {
+          customAmountInput.style.display = 'none';
+          customAmountInput.value = '';
+          selectedAmount = parseFloat(this.dataset.amount);
+        }
+      });
+    });
 
-</p>
-<p style="line-height: 100%; margin-bottom: 0in">    .thank-you-msg {</p>
-<p style="line-height: 100%; margin-bottom: 0in">      display: none;</p>
-<p style="line-height: 100%; margin-bottom: 0in">      background:
-#dff0d8;</p>
-<p style="line-height: 100%; margin-bottom: 0in">      color:
-#3c763d;</p>
-<p style="line-height: 100%; margin-bottom: 0in">      padding: 1rem;</p>
-<p style="line-height: 100%; margin-bottom: 0in">      margin-top:
-1rem;</p>
-<p style="line-height: 100%; margin-bottom: 0in">      border-radius:
-8px;</p>
-<p style="line-height: 100%; margin-bottom: 0in">      text-align:
-center;</p>
-<p style="line-height: 100%; margin-bottom: 0in">    }</p>
-<p style="line-height: 100%; margin-bottom: 0in"><br/>
+    const paymentRadios = document.querySelectorAll('input[name="payment-method"]');
+    const momoInfo = document.querySelector('.payment-info.momo');
+    const bankInfo = document.querySelector('.payment-info.bank');
 
-</p>
-<p style="line-height: 100%; margin-bottom: 0in">    .form-group {</p>
-<p style="line-height: 100%; margin-bottom: 0in">      margin-bottom:
-1.25rem;</p>
-<p style="line-height: 100%; margin-bottom: 0in">    }</p>
-<p style="line-height: 100%; margin-bottom: 0in"><br/>
+    paymentRadios.forEach(radio => {
+      radio.addEventListener('change', function () {
+        if (this.value === 'momo') {
+          momoInfo.classList.add('active');
+          bankInfo.classList.remove('active');
+        } else {
+          momoInfo.classList.remove('active');
+          bankInfo.classList.add('active');
+        }
+      });
+    });
 
-</p>
-<p style="line-height: 100%; margin-bottom: 0in">    label {</p>
-<p style="line-height: 100%; margin-bottom: 0in">      display:
-block;</p>
-<p style="line-height: 100%; margin-bottom: 0in">      margin-bottom:
-0.5rem;</p>
-<p style="line-height: 100%; margin-bottom: 0in">      font-weight:
-bold;</p>
-<p style="line-height: 100%; margin-bottom: 0in">    }</p>
-<p style="line-height: 100%; margin-bottom: 0in"><br/>
+    const paymentCards = document.querySelectorAll('.payment-method-card');
+    paymentCards.forEach((card, index) => {
+      card.addEventListener('click', () => {
+        paymentCards.forEach(c => c.classList.remove('selected'));
+        card.classList.add('selected');
+        paymentRadios[index].checked = true;
+        paymentRadios[index].dispatchEvent(new Event('change'));
+      });
+    });
 
-</p>
-<p style="line-height: 100%; margin-bottom: 0in">   
-input[type=&quot;text&quot;],</p>
-<p style="line-height: 100%; margin-bottom: 0in">   
-input[type=&quot;email&quot;],</p>
-<p style="line-height: 100%; margin-bottom: 0in">   
-input[type=&quot;number&quot;] {</p>
-<p style="line-height: 100%; margin-bottom: 0in">      width: 100%;</p>
-<p style="line-height: 100%; margin-bottom: 0in">      padding:
-0.6rem;</p>
-<p style="line-height: 100%; margin-bottom: 0in">      border: 1px
-solid #ccc;</p>
-<p style="line-height: 100%; margin-bottom: 0in">      border-radius:
-6px;</p>
-<p style="line-height: 100%; margin-bottom: 0in">    }</p>
-<p style="line-height: 100%; margin-bottom: 0in"><br/>
+    document.getElementById('donation-form').addEventListener('submit', function (e) {
+      e.preventDefault();
 
-</p>
-<p style="line-height: 100%; margin-bottom: 0in">    .amount-options
-{</p>
-<p style="line-height: 100%; margin-bottom: 0in">      display: flex;</p>
-<p style="line-height: 100%; margin-bottom: 0in">      flex-wrap:
-wrap;</p>
-<p style="line-height: 100%; margin-bottom: 0in">      gap: 10px;</p>
-<p style="line-height: 100%; margin-bottom: 0in">    }</p>
-<p style="line-height: 100%; margin-bottom: 0in"><br/>
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const paymentMethod = document.querySelector('input[name="payment-method"]:checked').value;
+      const amount = selectedAmount || parseFloat(customAmountInput.value);
 
-</p>
-<p style="line-height: 100%; margin-bottom: 0in">    .amount-btn {</p>
-<p style="line-height: 100%; margin-bottom: 0in">      background:
-#f1f1f1;</p>
-<p style="line-height: 100%; margin-bottom: 0in">      padding:
-0.6rem 1rem;</p>
-<p style="line-height: 100%; margin-bottom: 0in">      border-radius:
-6px;</p>
-<p style="line-height: 100%; margin-bottom: 0in">      cursor:
-pointer;</p>
-<p style="line-height: 100%; margin-bottom: 0in">      transition:
-background 0.3s;</p>
-<p style="line-height: 100%; margin-bottom: 0in">    }</p>
-<p style="line-height: 100%; margin-bottom: 0in"><br/>
+      if (!name || !email || isNaN(amount) || amount <= 0) {
+        alert('Please fill in all required fields and select a valid amount.');
+        return;
+      }
 
-</p>
-<p style="line-height: 100%; margin-bottom: 0in">   
-.amount-btn.selected {</p>
-<p style="line-height: 100%; margin-bottom: 0in">      background:
-#8e44ad;</p>
-<p style="line-height: 100%; margin-bottom: 0in">      color: white;</p>
-<p style="line-height: 100%; margin-bottom: 0in">    }</p>
-<p style="line-height: 100%; margin-bottom: 0in"><br/>
+      if (paymentMethod === 'bank') {
+        const bankName = document.getElementById('bank-name').value.trim();
+        const accountNumber = document.getElementById('account-number').value.trim();
+        if (!bankName || !accountNumber) {
+          alert('Please fill in bank name and account number.');
+          return;
+        }
+      }
 
-</p>
-<p style="line-height: 100%; margin-bottom: 0in">    .payment-method
-{</p>
-<p style="line-height: 100%; margin-bottom: 0in">      display: flex;</p>
-<p style="line-height: 100%; margin-bottom: 0in">      gap: 10px;</p>
-<p style="line-height: 100%; margin-bottom: 0in">    }</p>
-<p style="line-height: 100%; margin-bottom: 0in"><br/>
+      document.getElementById('thank-you-msg').style.display = 'block';
+      setTimeout(() => {
+        document.getElementById('thank-you-msg').style.display = 'none';
+      }, 7000);
 
-</p>
-<p style="line-height: 100%; margin-bottom: 0in">   
-.payment-method-card {</p>
-<p style="line-height: 100%; margin-bottom: 0in">      background:
-#ecf0f1;</p>
-<p style="line-height: 100%; margin-bottom: 0in">      padding: 1rem;</p>
-<p style="line-height: 100%; margin-bottom: 0in">      border-radius:
-6px;</p>
-<p style="line-height: 100%; margin-bottom: 0in">      cursor:
-pointer;</p>
-<p style="line-height: 100%; margin-bottom: 0in">      flex: 1;</p>
-<p style="line-height: 100%; margin-bottom: 0in">      text-align:
-center;</p>
-<p style="line-height: 100%; margin-bottom: 0in">      transition:
-background 0.3s;</p>
-<p style="line-height: 100%; margin-bottom: 0in">    }</p>
-<p style="line-height: 100%; margin-bottom: 0in"><br/>
-
-</p>
-<p style="line-height: 100%; margin-bottom: 0in">   
-.payment-method-card.selected {</p>
-<p style="line-height: 100%; margin-bottom: 0in">      background:
-#3498db;</p>
-<p style="line-height: 100%; margin-bottom: 0in">      color: white;</p>
-<p style="line-height: 100%; margin-bottom: 0in">    }</p>
-<p style="line-height: 100%; margin-bottom: 0in"><br/>
-
-</p>
-<p style="line-height: 100%; margin-bottom: 0in">    .payment-info {</p>
-<p style="line-height: 100%; margin-bottom: 0in">      display: none;</p>
-<p style="line-height: 100%; margin-bottom: 0in">    }</p>
-<p style="line-height: 100%; margin-bottom: 0in"><br/>
-
-</p>
-<p style="line-height: 100%; margin-bottom: 0in">   
-.payment-info.active {</p>
-<p style="line-height: 100%; margin-bottom: 0in">      display:
-block;</p>
-<p style="line-height: 100%; margin-bottom: 0in">      margin-top:
-1rem;</p>
-<p style="line-height: 100%; margin-bottom: 0in">    }</p>
-<p style="line-height: 100%; margin-bottom: 0in"><br/>
-
-</p>
-<p style="line-height: 100%; margin-bottom: 0in">    .submit-btn {</p>
-<p style="line-height: 100%; margin-bottom: 0in">      width: 100%;</p>
-<p style="line-height: 100%; margin-bottom: 0in">      padding: 1rem;</p>
-<p style="line-height: 100%; margin-bottom: 0in">      background:
-#3498db;</p>
-<p style="line-height: 100%; margin-bottom: 0in">      border: none;</p>
-<p style="line-height: 100%; margin-bottom: 0in">      color: white;</p>
-<p style="line-height: 100%; margin-bottom: 0in">      font-size:
-1rem;</p>
-<p style="line-height: 100%; margin-bottom: 0in">      border-radius:
-6px;</p>
-<p style="line-height: 100%; margin-bottom: 0in">      cursor:
-pointer;</p>
-<p style="line-height: 100%; margin-bottom: 0in">      transition:
-background 0.3s;</p>
-<p style="line-height: 100%; margin-bottom: 0in">    }</p>
-<p style="line-height: 100%; margin-bottom: 0in"><br/>
-
-</p>
-<p style="line-height: 100%; margin-bottom: 0in">   
-.submit-btn:hover {</p>
-<p style="line-height: 100%; margin-bottom: 0in">      background:
-#2980b9;</p>
-<p style="line-height: 100%; margin-bottom: 0in">    }</p>
-<p style="line-height: 100%; margin-bottom: 0in"><br/>
-
-</p>
-<p style="line-height: 100%; margin-bottom: 0in">    .whatsapp-button
-{</p>
-<p style="line-height: 100%; margin-bottom: 0in">      position:
-fixed;</p>
-<p style="line-height: 100%; margin-bottom: 0in">      bottom: 20px;</p>
-<p style="line-height: 100%; margin-bottom: 0in">      right: 20px;</p>
-<p style="line-height: 100%; margin-bottom: 0in">     
-background-color: #25D366;</p>
-<p style="line-height: 100%; margin-bottom: 0in">      color: white;</p>
-<p style="line-height: 100%; margin-bottom: 0in">      padding: 12px
-16px;</p>
-<p style="line-height: 100%; margin-bottom: 0in">      border-radius:
-50%;</p>
-<p style="line-height: 100%; margin-bottom: 0in">      font-size:
-24px;</p>
-<p style="line-height: 100%; margin-bottom: 0in">      box-shadow: 0
-4px 12px rgba(0, 0, 0, 0.2);</p>
-<p style="line-height: 100%; margin-bottom: 0in">      text-align:
-center;</p>
-<p style="line-height: 100%; margin-bottom: 0in">     
-text-decoration: none;</p>
-<p style="line-height: 100%; margin-bottom: 0in">      z-index: 1000;</p>
-<p style="line-height: 100%; margin-bottom: 0in">    }</p>
-<p style="line-height: 100%; margin-bottom: 0in">  &lt;/style&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0in">&lt;/head&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0in"><br/>
-
-</p>
-<p style="line-height: 100%; margin-bottom: 0in">&lt;body&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0in">  &lt;div
-class=&quot;container&quot;&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0in">    &lt;img
-src=&quot;https://upload.wikimedia.org/wikipedia/commons/4/44/Google-flutter-logo.svg&quot;
-class=&quot;logo&quot; alt=&quot;Logo&quot;&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0in">    &lt;div
-class=&quot;header&quot;&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0in">      &lt;h1&gt;Support
-Our Cause&lt;/h1&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0in">    &lt;/div&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0in">    &lt;form
-id=&quot;donation-form&quot;&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0in">      &lt;div
-class=&quot;form-group&quot;&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0in">        &lt;label
-for=&quot;name&quot;&gt;Full Name&lt;/label&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0in">        &lt;input
-type=&quot;text&quot; id=&quot;name&quot; name=&quot;name&quot;
-required /&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0in">      &lt;/div&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0in">      &lt;div
-class=&quot;form-group&quot;&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0in">        &lt;label
-for=&quot;email&quot;&gt;Email Address&lt;/label&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0in">        &lt;input
-type=&quot;email&quot; id=&quot;email&quot; name=&quot;email&quot;
-required /&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0in">      &lt;/div&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0in">      &lt;div
-class=&quot;form-group&quot;&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0in">       
-&lt;label&gt;Select Amount&lt;/label&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0in">        &lt;div
-class=&quot;amount-options&quot;&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0in">          &lt;div
-class=&quot;amount-btn&quot; data-amount=&quot;20&quot;&gt;₵20&lt;/div&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0in">          &lt;div
-class=&quot;amount-btn&quot; data-amount=&quot;50&quot;&gt;₵50&lt;/div&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0in">          &lt;div
-class=&quot;amount-btn&quot; data-amount=&quot;100&quot;&gt;₵100&lt;/div&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0in">          &lt;div
-class=&quot;amount-btn&quot; data-amount=&quot;200&quot;&gt;₵200&lt;/div&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0in">          &lt;div
-class=&quot;amount-btn&quot; data-amount=&quot;500&quot;&gt;₵500&lt;/div&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0in">          &lt;div
-class=&quot;amount-btn&quot; data-amount=&quot;other&quot;&gt;Other&lt;/div&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0in">        &lt;/div&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0in">        &lt;input
-type=&quot;number&quot; id=&quot;custom-amount&quot;
-placeholder=&quot;Enter custom amount&quot; style=&quot;margin-top:10px;
-display:none;&quot; /&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0in">      &lt;/div&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0in">      &lt;div
-class=&quot;form-group&quot;&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0in">       
-&lt;label&gt;Payment Method&lt;/label&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0in">        &lt;div
-class=&quot;payment-method&quot;&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0in">          &lt;label&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0in">            &lt;input
-type=&quot;radio&quot; name=&quot;payment-method&quot; value=&quot;momo&quot;
-checked hidden /&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0in">            &lt;div
-class=&quot;payment-method-card selected&quot;&gt;Mobile Money&lt;/div&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0in">          &lt;/label&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0in">          &lt;label&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0in">            &lt;input
-type=&quot;radio&quot; name=&quot;payment-method&quot; value=&quot;bank&quot;
-hidden /&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0in">            &lt;div
-class=&quot;payment-method-card&quot;&gt;Bank Transfer&lt;/div&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0in">          &lt;/label&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0in">        &lt;/div&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0in">      &lt;/div&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0in">      &lt;div
-class=&quot;payment-info momo active&quot;&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0in">        &lt;p&gt;Send
-to Mobile Money Number:&lt;/p&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0in">        &lt;div
-class=&quot;payment-number&quot; id=&quot;momo-number&quot;&gt;0532871325
-&lt;button type=&quot;button&quot;
-onclick=&quot;navigator.clipboard.writeText('0532871325')&quot;&gt;📋&lt;/button&gt;&lt;/div&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0in">        &lt;p
-class=&quot;mobile-money-steps&quot;&gt;After sending the money,
-provide your email to receive a confirmation.&lt;/p&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0in">      &lt;/div&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0in">      &lt;div
-class=&quot;payment-info bank&quot;&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0in">        &lt;label
-for=&quot;bank-name&quot;&gt;Bank Name&lt;/label&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0in">        &lt;input
-type=&quot;text&quot; id=&quot;bank-name&quot; name=&quot;bank-name&quot;
-/&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0in">        &lt;label
-for=&quot;account-number&quot;&gt;Account Number&lt;/label&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0in">        &lt;input
-type=&quot;text&quot; id=&quot;account-number&quot;
-name=&quot;account-number&quot; /&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0in">      &lt;/div&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0in">      &lt;button
-type=&quot;submit&quot; class=&quot;submit-btn&quot;&gt;Donate
-Now&lt;/button&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0in">      &lt;div
-class=&quot;thank-you-msg&quot; id=&quot;thank-you-msg&quot;&gt;Thank
-you for your generous donation! 🎉&lt;/div&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0in">    &lt;/form&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0in">  &lt;/div&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0in"><br/>
-
-</p>
-<p style="line-height: 100%; margin-bottom: 0in">  &lt;a
-class=&quot;whatsapp-button&quot; href=&quot;https://wa.me/233532871325&quot;
-target=&quot;_blank&quot; title=&quot;Chat with us on
-WhatsApp&quot;&gt;💬&lt;/a&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0in"><br/>
-
-</p>
-<p style="line-height: 100%; margin-bottom: 0in">  &lt;script&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0in">    const
-amountButtons = document.querySelectorAll('.amount-btn');</p>
-<p style="line-height: 100%; margin-bottom: 0in">    const
-customAmountInput = document.getElementById('custom-amount');</p>
-<p style="line-height: 100%; margin-bottom: 0in">    let
-selectedAmount = null;</p>
-<p style="line-height: 100%; margin-bottom: 0in"><br/>
-
-</p>
-<p style="line-height: 100%; margin-bottom: 0in">   
-amountButtons.forEach(btn =&gt; {</p>
-<p style="line-height: 100%; margin-bottom: 0in">     
-btn.addEventListener('click', function () {</p>
-<p style="line-height: 100%; margin-bottom: 0in">       
-amountButtons.forEach(b =&gt; b.classList.remove('selected'));</p>
-<p style="line-height: 100%; margin-bottom: 0in">       
-this.classList.add('selected');</p>
-<p style="line-height: 100%; margin-bottom: 0in">        if
-(this.dataset.amount === 'other') {</p>
-<p style="line-height: 100%; margin-bottom: 0in">         
-customAmountInput.style.display = 'block';</p>
-<p style="line-height: 100%; margin-bottom: 0in">         
-selectedAmount = null;</p>
-<p style="line-height: 100%; margin-bottom: 0in">        } else {</p>
-<p style="line-height: 100%; margin-bottom: 0in">         
-customAmountInput.style.display = 'none';</p>
-<p style="line-height: 100%; margin-bottom: 0in">         
-customAmountInput.value = '';</p>
-<p style="line-height: 100%; margin-bottom: 0in">         
-selectedAmount = parseFloat(this.dataset.amount);</p>
-<p style="line-height: 100%; margin-bottom: 0in">        }</p>
-<p style="line-height: 100%; margin-bottom: 0in">      });</p>
-<p style="line-height: 100%; margin-bottom: 0in">    });</p>
-<p style="line-height: 100%; margin-bottom: 0in"><br/>
-
-</p>
-<p style="line-height: 100%; margin-bottom: 0in">    const
-paymentRadios =
-document.querySelectorAll('input[name=&quot;payment-method&quot;]');</p>
-<p style="line-height: 100%; margin-bottom: 0in">    const momoInfo =
-document.querySelector('.payment-info.momo');</p>
-<p style="line-height: 100%; margin-bottom: 0in">    const bankInfo =
-document.querySelector('.payment-info.bank');</p>
-<p style="line-height: 100%; margin-bottom: 0in"><br/>
-
-</p>
-<p style="line-height: 100%; margin-bottom: 0in">   
-paymentRadios.forEach(radio =&gt; {</p>
-<p style="line-height: 100%; margin-bottom: 0in">     
-radio.addEventListener('change', function () {</p>
-<p style="line-height: 100%; margin-bottom: 0in">        if
-(this.value === 'momo') {</p>
-<p style="line-height: 100%; margin-bottom: 0in">         
-momoInfo.classList.add('active');</p>
-<p style="line-height: 100%; margin-bottom: 0in">         
-bankInfo.classList.remove('active');</p>
-<p style="line-height: 100%; margin-bottom: 0in">        } else {</p>
-<p style="line-height: 100%; margin-bottom: 0in">         
-momoInfo.classList.remove('active');</p>
-<p style="line-height: 100%; margin-bottom: 0in">         
-bankInfo.classList.add('active');</p>
-<p style="line-height: 100%; margin-bottom: 0in">        }</p>
-<p style="line-height: 100%; margin-bottom: 0in">      });</p>
-<p style="line-height: 100%; margin-bottom: 0in">    });</p>
-<p style="line-height: 100%; margin-bottom: 0in"><br/>
-
-</p>
-<p style="line-height: 100%; margin-bottom: 0in">    const
-paymentCards = document.querySelectorAll('.payment-method-card');</p>
-<p style="line-height: 100%; margin-bottom: 0in">   
-paymentCards.forEach((card, index) =&gt; {</p>
-<p style="line-height: 100%; margin-bottom: 0in">     
-card.addEventListener('click', () =&gt; {</p>
-<p style="line-height: 100%; margin-bottom: 0in">       
-paymentCards.forEach(c =&gt; c.classList.remove('selected'));</p>
-<p style="line-height: 100%; margin-bottom: 0in">       
-card.classList.add('selected');</p>
-<p style="line-height: 100%; margin-bottom: 0in">       
-paymentRadios[index].checked = true;</p>
-<p style="line-height: 100%; margin-bottom: 0in">       
-paymentRadios[index].dispatchEvent(new Event('change'));</p>
-<p style="line-height: 100%; margin-bottom: 0in">      });</p>
-<p style="line-height: 100%; margin-bottom: 0in">    });</p>
-<p style="line-height: 100%; margin-bottom: 0in"><br/>
-
-</p>
-<p style="line-height: 100%; margin-bottom: 0in">   
-document.getElementById('donation-form').addEventListener('submit',
-function (e) {</p>
-<p style="line-height: 100%; margin-bottom: 0in">     
-e.preventDefault();</p>
-<p style="line-height: 100%; margin-bottom: 0in"><br/>
-
-</p>
-<p style="line-height: 100%; margin-bottom: 0in">      const name =
-document.getElementById('name').value.trim();</p>
-<p style="line-height: 100%; margin-bottom: 0in">      const email =
-document.getElementById('email').value.trim();</p>
-<p style="line-height: 100%; margin-bottom: 0in">      const
-paymentMethod =
-document.querySelector('input[name=&quot;payment-method&quot;]:checked').value;</p>
-<p style="line-height: 100%; margin-bottom: 0in">      const amount =
-selectedAmount || parseFloat(customAmountInput.value);</p>
-<p style="line-height: 100%; margin-bottom: 0in"><br/>
-
-</p>
-<p style="line-height: 100%; margin-bottom: 0in">      if (!name ||
-!email || isNaN(amount) || amount &lt;= 0) {</p>
-<p style="line-height: 100%; margin-bottom: 0in">       
-alert('Please fill in all required fields and select a valid
-amount.');</p>
-<p style="line-height: 100%; margin-bottom: 0in">        return;</p>
-<p style="line-height: 100%; margin-bottom: 0in">      }</p>
-<p style="line-height: 100%; margin-bottom: 0in"><br/>
-
-</p>
-<p style="line-height: 100%; margin-bottom: 0in">      if
-(paymentMethod === 'bank') {</p>
-<p style="line-height: 100%; margin-bottom: 0in">        const
-bankName = document.getElementById('bank-name').value.trim();</p>
-<p style="line-height: 100%; margin-bottom: 0in">        const
-accountNumber =
-document.getElementById('account-number').value.trim();</p>
-<p style="line-height: 100%; margin-bottom: 0in">        if
-(!bankName || !accountNumber) {</p>
-<p style="line-height: 100%; margin-bottom: 0in">         
-alert('Please fill in bank name and account number.');</p>
-<p style="line-height: 100%; margin-bottom: 0in">          return;</p>
-<p style="line-height: 100%; margin-bottom: 0in">        }</p>
-<p style="line-height: 100%; margin-bottom: 0in">      }</p>
-<p style="line-height: 100%; margin-bottom: 0in"><br/>
-
-</p>
-<p style="line-height: 100%; margin-bottom: 0in">     
-document.getElementById('thank-you-msg').style.display = 'block';</p>
-<p style="line-height: 100%; margin-bottom: 0in">      setTimeout(()
-=&gt; {</p>
-<p style="line-height: 100%; margin-bottom: 0in">       
-document.getElementById('thank-you-msg').style.display = 'none';</p>
-<p style="line-height: 100%; margin-bottom: 0in">      }, 7000);</p>
-<p style="line-height: 100%; margin-bottom: 0in"><br/>
-
-</p>
-<p style="line-height: 100%; margin-bottom: 0in">      // Future
-enhancement: Send data to server here</p>
-<p style="line-height: 100%; margin-bottom: 0in">    });</p>
-<p style="line-height: 100%; margin-bottom: 0in">  &lt;/script&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0in">&lt;/body&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0in"><br/>
-
-</p>
-<p style="line-height: 100%; margin-bottom: 0in">&lt;/html&gt;</p>
+      this.submit();
+    });
+  </script>
 </body>
+
 </html>
